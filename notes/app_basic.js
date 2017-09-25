@@ -85,7 +85,7 @@ var Player = function() {
     this.x = 202;
     this.y = 415;
     // Loading the image by setting this.sprite
-    this.sprite = 'images/char-boy.png';
+    this.sprite = 'images/artwork_Sparky.png';
 }
 
 // Update per actualitzar la posició de la personeta

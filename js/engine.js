@@ -30,9 +30,9 @@ var Engine = (function(global) {
     canvas.width = 909;
     canvas.height = 760;
     doc.body.appendChild(canvas);
-    
+
     document.getElementById('dialogs').style.left = ((screen.width - canvas.width) / 2 - 10) + 'px';
-    
+
     /** This function serves as the kickoff point for the game loop itself
      *  and handles properly calling the update and render methods.
      */
@@ -73,21 +73,21 @@ var Engine = (function(global) {
     }
 
     /** This function is called by main (our game loop) and itself calls all
-     *  of the functions which may need to update entity's data. 
+     *  of the functions which may need to update entity's data.
      */
     function update(dt) {
         switch(currentLevel) {
             /** If we are in the starting screen, we don't show the canvas */
             case 0:
                 break;
-        
+
             default:
                 updateEntities(dt);
                 break;
         }
-        
-        /** There is a bug when rendering the game and the Player 
-         *  arrives to the top of the screen, the head of the player 
+
+        /** There is a bug when rendering the game and the Player
+         *  arrives to the top of the screen, the head of the player
          *  stays rendered behind the tiles.
          *  Thanks to Sebastian in the forums for this fix.
          */
@@ -107,7 +107,7 @@ var Engine = (function(global) {
         });
         player.update();
     }
-    
+
     /** This function initially draws the "game level", it will then call
      *  the renderEntities function. Remember, this function is called every
      *  game tick (or loop of the game engine) because that's how games work -
@@ -119,13 +119,14 @@ var Engine = (function(global) {
          *  Afterwards we create a matrix for each row/column, where we will put
          *  each type of ground for each spot, that will vary for each level.
          */
-        var s = 'img/stone-block.png';
+        var s = 'img/artwork_Mossy-rocks.png';
         var g = 'img/grass-block.png';
-        var w = 'img/water-block.png';
+        var w = 'img/artwork_Water.png';
         var d = 'img/dirt-block.png';
         var f = 'img/wood-block.png';
+        var dw = 'img/artwork_Dirty-water.png';
         var matrix;
-         
+
         /** TODO: find a better way to store and access the matrix for the grounds */
         switch(currentLevel)
         {
@@ -133,63 +134,63 @@ var Engine = (function(global) {
                 matrix = [
                     [s,s,s,f,f,f,s,s,s], // row 1
                     [s,s,s,f,f,f,s,s,s], // row 2
-                    [g,g,g,g,g,g,g,g,g], // row 3
-                    [g,g,g,g,g,g,g,g,g], // row 4
-                    [g,g,g,g,g,g,g,g,g], // row 5
-                    [g,g,g,g,g,g,g,g,g], // row 6
-                    [g,g,g,g,g,g,g,g,g], // row 7
+                    [w,w,w,w,w,w,w,w,w], // row 3
+                    [w,w,w,w,w,w,w,w,w], // row 4
+                    [w,w,w,w,w,w,w,w,w], // row 5
+                    [w,w,w,w,w,w,w,w,w], // row 6
+                    [w,w,w,w,w,w,w,w,w], // row 7
                     [s,s,s,s,s,s,s,s,s]  // row 8
                 ];
                 break;
-            
+
             case 2:
                 matrix = [
-                    [f,f,f,w,w,w,w,w,w], // row 1
-                    [f,f,f,g,g,g,g,g,g], // row 2
-                    [g,g,g,g,g,g,g,g,g], // row 3
-                    [g,g,g,g,g,g,g,g,g], // row 4
-                    [g,g,g,g,g,g,g,g,g], // row 5
-                    [g,g,g,g,g,g,g,g,g], // row 6
-                    [d,d,d,g,g,g,g,s,s], // row 7
-                    [d,d,d,d,g,g,g,s,s]  // row 8
+                    [f,f,f,s,s,s,s,s,s], // row 1
+                    [f,f,f,w,w,w,w,w,w], // row 2
+                    [w,w,w,w,w,w,w,w,w], // row 3
+                    [w,w,w,w,w,w,w,w,w], // row 4
+                    [w,w,w,w,w,w,w,w,w], // row 5
+                    [w,w,w,w,w,w,w,w,w], // row 6
+                    [s,s,s,w,w,w,w,s,s], // row 7
+                    [s,s,s,s,w,w,w,s,s]  // row 8
                 ];
                 break;
-            
+
             case 3:
                 matrix = [
-                    [d,g,g,g,g,d,d,d,d], // row 1
-                    [d,g,g,d,d,g,g,s,s], // row 2
-                    [d,d,g,d,d,g,g,f,f], // row 3
-                    [w,w,g,d,g,g,g,f,f], // row 4
-                    [w,w,d,d,g,g,g,g,g], // row 5
-                    [w,w,d,d,g,g,g,g,g], // row 6
-                    [s,s,d,g,g,g,g,g,g], // row 7
-                    [s,s,d,g,g,g,g,g,g]  // row 8
+                    [w,w,w,w,w,w,w,w,w], // row 1
+                    [w,g,g,w,w,w,w,w,w], // row 2
+                    [w,w,g,w,w,w,w,f,f], // row 3
+                    [w,w,g,w,g,g,g,f,f], // row 4
+                    [w,w,w,w,w,w,w,w,w], // row 5
+                    [w,w,w,w,w,w,w,w,w], // row 6
+                    [s,s,w,w,w,w,w,w,w], // row 7
+                    [s,s,w,g,g,g,g,g,g]  // row 8
                 ];
                 break;
-                        
+
             case 4:
                 matrix = [
-                    [d,d,d,w,w,s,s,s,s], // row 1
-                    [d,w,d,d,d,d,d,d,d], // row 2
-                    [d,w,w,d,w,w,w,w,d], // row 3
-                    [d,w,w,d,w,w,w,w,w], // row 4
-                    [d,d,d,d,w,w,w,w,w], // row 5
-                    [d,d,d,d,d,f,f,f,w], // row 6
-                    [w,w,w,w,d,f,f,f,w], // row 7
-                    [w,w,w,w,d,d,d,w,w]  // row 8
+                    [w,w,w,dw,dw,s,s,s,s], // row 1
+                    [w,dw,w,w,w,w,w,w,w], // row 2
+                    [w,dw,dw,w,dw,dw,dw,dw,w], // row 3
+                    [w,dw,dw,w,dw,dw,dw,dw,dw], // row 4
+                    [w,dw,w,w,dw,dw,dw,dw,dw], // row 5
+                    [w,w,w,w,w,f,f,f,dw], // row 6
+                    [dw,dw,dw,dw,w,f,f,f,dw], // row 7
+                    [dw,dw,dw,dw,w,w,w,dw,dw]  // row 8
                 ];
                 break;
         }
-        
+
         if (currentLevel === 0) {
             document.getElementById('menu').hidden = true;
             document.getElementById('opening').hidden = false;
-            
+
         } else {
             document.getElementById('menu').hidden = false;
             document.getElementById('opening').hidden = true;
-            
+
             /* Loop through the number of rows and columns we've defined above
              * and, using the matrix double array, draw the correct image for that
              * portion of the "grid"
@@ -208,12 +209,12 @@ var Engine = (function(global) {
             }
             renderEntities();
         }
-        
+
         /** Function to wrap the text that will appear on the canvas when game_over or game_final */
         var wrapText = function (ctx, text, x, y, maxWidth, lineHeight) {
             var words = text.split(' ');
             var line = '';
-                
+
             for(var n = 0; n < words.length; n++) {
                 var testLine = line + words[n] + ' ';
                 var metrics = ctx.measureText(testLine);
@@ -234,7 +235,7 @@ var Engine = (function(global) {
         var x = 470;
         var y = 320;
         var text = '';
-        
+
         if (gameLost) {
             text = 'GAME OVER. The bugs crawl over you, as you lay down, too exhausted to go on... Press Enter to start over.';
             ctx.globalCompositeOperation = 'source-over';
@@ -245,7 +246,7 @@ var Engine = (function(global) {
             ctx.textAlign = 'center';
             wrapText(ctx, text, x, y, maxWidth, lineHeight);
         }
-        
+
         if (gameWon) {
             text = 'CONGRATULATIONS! You found your friend\s house!';
             ctx.globalCompositeOperation = 'source-over';
@@ -267,27 +268,33 @@ var Engine = (function(global) {
          *  the render function you have defined.
          */
         allObstacles.forEach(function(obstacle){
-           obstacle.render(); 
+           obstacle.render();
         });
-        
+
         allItems.forEach(function(item){
-           item.render(); 
+           item.render();
         });
-               
+
         allEnemies.forEach(function(enemy) {
             enemy.render();
         });
 
         player.render();
     }
-    
+
     /** Go ahead and load all of the images we know we're going to need to
      *  draw our game level. Then set init as the callback method, so that when
      *  all of these images are properly loaded our game will start.
      */
     Resources.load([
         'img/stone-block.png',
-        'img/water-block.png',
+        'img/artwork_Mossy-rocks.png',
+        'img/artwork_Water.png',
+        'img/artwork_Dirty-water.png',
+        'img/artwork_Frog.png',
+        'img/artwork_Sparky.png',
+        'img/artwork_Fish.png',
+        'img/artwork_Fish-left.png',
         'img/grass-block.png',
         'img/wood-block.png',
         'img/dirt-block.png',
@@ -297,8 +304,6 @@ var Engine = (function(global) {
         'img/key.png',
         'img/rock.png',
         'img/speech-bubble.png',
-        'img/char-boy.png',
-        'img/char-boy-sad.png',
         'img/char-cat-girl.png',
         'img/char-cat-girl-sad.png',
         'img/char-horn-girl.png',

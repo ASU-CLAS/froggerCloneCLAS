@@ -194,7 +194,7 @@ var Engine = (function(global) {
         'images/selector.png',
         'images/star.png',
         'images/speechbubble.png',
-        'images/char-boy.png',
+        'images/artwork_Sparky.png',
         'images/char-cat-girl.png',
         'images/char-horn-girl.png',
         'images/char-pink-girl.png',

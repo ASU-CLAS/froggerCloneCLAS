@@ -6,11 +6,11 @@
  */
 
 /** @global */
-var HERO = "char-horn-girl",    // choosen hero (horn-girl by default)
+var HERO = "char-boy",    // choosen hero (horn-girl by default)
     DIFFICULTY = 1,             // choosen level of difficulty (normal by default)
     gameLost = false,           // boolean to know when we die
     gameWon = false,            // boolean to know when we finish
-    currentLifes = 5,           // number of current lifes
+    currentLifes = 3,           // number of current lifes
     currentKeys = 0,            // number of current keys
     currentLevel = 0,           // level of the screen
     hasBlueGem = false,         // has picked the blue gem
@@ -36,44 +36,44 @@ if (hasGreenGem) {
 }
 
 /* Initialize the 4 dialogs as hidden. They will ony appear at the end of each level */
-document.getElementById('dialog1').hidden = true;
-document.getElementById('dialog2').hidden = true;
-document.getElementById('dialog3').hidden = true;
-document.getElementById('dialog4').hidden = true;
+// document.getElementById('dialog1').hidden = true;
+// document.getElementById('dialog2').hidden = true;
+// document.getElementById('dialog3').hidden = true;
+// document.getElementById('dialog4').hidden = true;
 
 
 /* Initialize the hero to the player's choosen, if clicked */
 document.getElementById('boy').addEventListener('click', function () {
     HERO = 'char-boy';
-    document.getElementById('boy').src = 'img/menu/char-boy.png';
+    document.getElementById('boy').src = 'img/menu/artwork_Sparky.png';
     document.getElementById('cat-girl').src = 'img/menu/char-cat-girl-off.png';
     document.getElementById('horn-girl').src = 'img/menu/char-horn-girl-off.png';
     document.getElementById('princess-girl').src = 'img/menu/char-princess-girl-off.png';
 }, false);
-
-document.getElementById('cat-girl').addEventListener('click', function () {
-    HERO = 'char-cat-girl';
-    document.getElementById('boy').src = 'img/menu/char-boy-off.png';
-    document.getElementById('cat-girl').src = 'img/menu/char-cat-girl.png';
-    document.getElementById('horn-girl').src = 'img/menu/char-horn-girl-off.png';
-    document.getElementById('princess-girl').src = 'img/menu/char-princess-girl-off.png';
-}, false);
-
-document.getElementById('horn-girl').addEventListener('click', function () {
-    HERO = 'char-horn-girl';
-    document.getElementById('boy').src = 'img/menu/char-boy-off.png';
-    document.getElementById('cat-girl').src = 'img/menu/char-cat-girl-off.png';
-    document.getElementById('horn-girl').src = 'img/menu/char-horn-girl.png';
-    document.getElementById('princess-girl').src = 'img/menu/char-princess-girl-off.png';
-}, false);
-
-document.getElementById('princess-girl').addEventListener('click', function () {
-    HERO = 'char-princess-girl';
-    document.getElementById('boy').src = 'img/menu/char-boy-off.png';
-    document.getElementById('cat-girl').src = 'img/menu/char-cat-girl-off.png';
-    document.getElementById('horn-girl').src = 'img/menu/char-horn-girl-off.png';
-    document.getElementById('princess-girl').src = 'img/menu/char-princess-girl.png';
-}, false);
+//
+// document.getElementById('cat-girl').addEventListener('click', function () {
+//     HERO = 'char-cat-girl';
+//     document.getElementById('boy').src = 'img/menu/artwork_Sparky.png';
+//     document.getElementById('cat-girl').src = 'img/menu/char-cat-girl.png';
+//     document.getElementById('horn-girl').src = 'img/menu/char-horn-girl-off.png';
+//     document.getElementById('princess-girl').src = 'img/menu/char-princess-girl-off.png';
+// }, false);
+//
+// document.getElementById('horn-girl').addEventListener('click', function () {
+//     HERO = 'char-horn-girl';
+//     document.getElementById('boy').src = 'img/menu/artwork_Sparky.png';
+//     document.getElementById('cat-girl').src = 'img/menu/char-cat-girl-off.png';
+//     document.getElementById('horn-girl').src = 'img/menu/char-horn-girl.png';
+//     document.getElementById('princess-girl').src = 'img/menu/char-princess-girl-off.png';
+// }, false);
+//
+// document.getElementById('princess-girl').addEventListener('click', function () {
+//     HERO = 'char-princess-girl';
+//     document.getElementById('boy').src = 'img/menu/artwork_Sparky.png';
+//     document.getElementById('cat-girl').src = 'img/menu/char-cat-girl-off.png';
+//     document.getElementById('horn-girl').src = 'img/menu/char-horn-girl-off.png';
+//     document.getElementById('princess-girl').src = 'img/menu/char-princess-girl.png';
+// }, false);
 
 
 /* Initialize the difficulty to the player's choosen, if clicked */
@@ -134,9 +134,9 @@ var Items = function (x, y, sprite, item) {
     this.item = item;
 };
 
-/** 
+/**
  * @function Render function for the items
- * @description Draw the items on the screen 
+ * @description Draw the items on the screen
  */
 Items.prototype.render = function () {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
@@ -184,9 +184,8 @@ var itemsReset = function (level) {
             ];
 
             allItems = [
-                new Items(707, 131, 'key', 'key'),
-                new Items(101, 131, 'key', 'key'),
-                new Items(0, 465, 'heart', 'life')
+                new Items(707, 570, 'artwork_Frog', 'key'),
+                new Items(707, 131, 'heart', 'life')
             ];
 
             break;
@@ -201,12 +200,12 @@ var itemsReset = function (level) {
                 new Items(101, -40, 'roof-south', 'house'),
                 new Items(202, -40, 'roof-south-east', 'house'),
                 // row 1
-                new Items(303, -25, 'blanc', 'water'),
-                new Items(404, -25, 'blanc', 'water'),
-                new Items(505, -25, 'blanc', 'water'),
-                new Items(606, -25, 'blanc', 'water'),
-                new Items(707, -25, 'blanc', 'water'),
-                new Items(808, -25, 'blanc', 'water'),
+                // new Items(303, -25, 'blanc', 'water'),
+                // new Items(404, -25, 'blanc', 'water'),
+                // new Items(505, -25, 'blanc', 'water'),
+                // new Items(606, -25, 'blanc', 'water'),
+                // new Items(707, -25, 'blanc', 'water'),
+                // new Items(808, -25, 'blanc', 'water'),
                 // row 2
                 new Items(303, 58, 'tree-ugly', 'tree'),
                 // row 3
@@ -230,11 +229,11 @@ var itemsReset = function (level) {
             ];
 
             allItems = [
-                new Items(808, 131, 'key', 'key'),
-                new Items(0, 297, 'key', 'key'),
+                new Items(808, 131, 'artwork_Frog', 'key'),
+                // new Items(0, 297, 'key', 'key'),
                 new Items(606, 48, 'heart', 'life'),
-                new Items(202, 465, 'chest-closed', 'chest-green'),
-                new Items(202, 400, 'blanc', 'chest-lid')
+                // new Items(202, 465, 'chest-closed', 'chest-green'),
+                // new Items(202, 400, 'blanc', 'chest-lid')
             ];
 
             break;
@@ -249,39 +248,39 @@ var itemsReset = function (level) {
                 new Items(707, 141, 'roof-south-west', 'house'),
                 new Items(808, 141, 'roof-south-east', 'house'),
                 // row 1
-                new Items(101, -25, 'tree-tall', 'tree'),
-                new Items(202, -25, 'tree-ugly', 'tree'),
-                new Items(303, -25, 'tree-ugly', 'tree'),
-                new Items(404, -25, 'tree-ugly', 'tree'),
+                // new Items(101, -25, 'tree-tall', 'tree'),
+                // new Items(202, -25, 'tree-ugly', 'tree'),
+                // new Items(303, -25, 'tree-ugly', 'tree'),
+                // new Items(404, -25, 'tree-ugly', 'tree'),
                 new Items(505, -25, 'rock', 'rock'),
                 // row 2
                 new Items(101, 58, 'tree-tall', 'tree'),
                 new Items(202, 58, 'tree-tall', 'tree'),
-                new Items(505, 58, 'tree-ugly', 'tree'),
-                new Items(606, 58, 'tree-ugly', 'tree'),
+                // new Items(505, 58, 'tree-ugly', 'tree'),
+                // new Items(606, 58, 'tree-ugly', 'tree'),
                 // row 3
-                new Items(0, 141, 'rock', 'rock'),
+                // new Items(0, 141, 'rock', 'rock'),
                 new Items(101, 141, 'rock', 'rock'),
                 new Items(202, 141, 'tree-ugly', 'tree'),
                 new Items(404, 141, 'rock', 'rock'),
-                new Items(505, 141, 'tree-tall', 'tree'),
-                new Items(606, 141, 'tree-tall', 'tree'),
+                new Items(505, 141, 'tree-ugly', 'tree'),
+                new Items(606, 141, 'tree-ugly', 'tree'),
                 // row 4
-                new Items(0, 224, 'blanc', 'water'),
-                new Items(101, 224, 'blanc', 'water'),
+                // new Items(0, 224, 'blanc', 'water'),
+                // new Items(101, 224, 'blanc', 'water'),
                 new Items(202, 224, 'tree-ugly', 'tree'),
                 new Items(404, 224, 'tree-tall', 'tree'),
-                new Items(505, 224, 'tree-tall', 'tree'),
+                // new Items(505, 224, 'tree-tall', 'tree'),
                 new Items(606, 224, 'tree-tall', 'tree'),
                 // row 5
-                new Items(0, 307, 'blanc', 'water'),
-                new Items(101, 307, 'blanc', 'water'),
-                new Items(404, 307, 'tree-tall', 'tree'),
+                // new Items(0, 307, 'blanc', 'water'),
+                // new Items(101, 307, 'blanc', 'water'),
+                // new Items(404, 307, 'tree-tall', 'tree'),
                 new Items(606, 307, 'tree-ugly', 'tree'),
                 new Items(707, 307, 'tree-ugly', 'tree'),
                 // row 6
-                new Items(0, 390, 'blanc', 'water'),
-                new Items(101, 390, 'blanc', 'water'),
+                // new Items(0, 390, 'blanc', 'water'),
+                // new Items(101, 390, 'blanc', 'water'),
                 new Items(606, 390, 'tree-ugly', 'tree'),
                 new Items(707, 390, 'tree-ugly', 'tree'),
                 // row 7
@@ -296,9 +295,9 @@ var itemsReset = function (level) {
             ];
 
             allItems = [
-                new Items(505, 546, 'key', 'key'),
+                new Items(505, 546, 'artwork_Frog', 'key'),
                 new Items(808, -35, 'heart', 'life'),
-                new Items(0, -35, 'chest-closed', 'chest-blue'),
+                // new Items(0, -35, 'chest-closed', 'chest-blue'),
                 new Items(0, -100, 'blanc', 'chest-lid')
             ];
 
@@ -363,8 +362,8 @@ var itemsReset = function (level) {
             ];
 
             allItems = [
-                new Items(101, 297, 'key', 'key'),
-                new Items(505, 214, 'heart', 'life')
+                new Items(0, 307, 'artwork_Frog', 'key'),
+                // new Items(505, 214, 'heart', 'life')
             ];
 
             break;
@@ -413,10 +412,11 @@ var Enemy = function (x, y, moveRight, startMove, endMove) {
     }
 
     /* Loading the image by setting this.sprite to the appropriate image */
-    this.sprite = 'img/enemy-bug.png';
+    // this.sprite = 'img/enemy-bug.png';
+    this.sprite = 'img/artwork_Fish.png';
 };
 
-/** 
+/**
  * @function Update enemy function
  * @description Update the enemy's position, required method for game
  * @param {number} Parameter: dt, a time delta between ticks
@@ -442,7 +442,7 @@ Enemy.prototype.update = function (dt) {
             /* Updates the Enemy location, that goes back and forth in the same interval of positions */
             if (this.moveRight) {
                 this.x += this.speed * dt;
-                this.sprite = 'img/enemy-bug.png';
+                this.sprite = 'img/artwork_Fish.png';
                 if (this.x > this.endMove) {
                     this.x -= this.speed * dt;
                     this.moveRight = false;
@@ -450,7 +450,7 @@ Enemy.prototype.update = function (dt) {
             } else {
                 /* Going back right to left, we change sprites */
                 this.x -= this.speed * dt;
-                this.sprite = 'img/enemy-bug-left.png';
+                this.sprite = 'img/artwork_Fish-left.png';
                 if (this.x < this.startMove) {
                     this.x += this.speed * dt;
                     this.moveRight = true;
@@ -462,7 +462,7 @@ Enemy.prototype.update = function (dt) {
             /* Updates the Enemy location, that goes back and forth in the same interval of positions */
             if (this.moveRight) {
                 this.x += this.speed * dt;
-                this.sprite = 'img/enemy-bug.png';
+                this.sprite = 'img/artwork_Fish.png';
                 if (this.x > this.endMove) {
                     this.x -= this.speed * dt;
                     this.moveRight = false;
@@ -470,7 +470,7 @@ Enemy.prototype.update = function (dt) {
             } else {
                 /* Going back right to left, we change sprites */
                 this.x -= this.speed * dt;
-                this.sprite = 'img/enemy-bug-left.png';
+                this.sprite = 'img/artwork_Fish-left.png';
                 if (this.x < this.startMove) {
                     this.x += this.speed * dt;
                     this.moveRight = true;
@@ -483,7 +483,7 @@ Enemy.prototype.update = function (dt) {
                 /* Updates the Enemy location, that goes back and forth in the same interval of positions */
                 if (this.moveRight) {
                     this.x += this.speed * dt;
-                    this.sprite = 'img/enemy-bug.png';
+                    this.sprite = 'img/artwork_Fish.png';
                     if (this.x > this.endMove) {
                         this.x -= this.speed * dt;
                         this.moveRight = false;
@@ -491,7 +491,7 @@ Enemy.prototype.update = function (dt) {
                 } else {
                     /* Going back right to left, we change sprites */
                     this.x -= this.speed * dt;
-                    this.sprite = 'img/enemy-bug-left.png';
+                    this.sprite = 'img/artwork_Fish-left.png';
                     if (this.x < this.startMove) {
                         this.x += this.speed * dt;
                         this.moveRight = true;
@@ -509,7 +509,7 @@ Enemy.prototype.update = function (dt) {
                 } else {
                     /* Updates the Enemy location, that goes from right to left */
                     this.x -= this.speed * dt;
-                    this.sprite = 'img/enemy-bug-left.png';
+                    this.sprite = 'img/artwork_Fish-left.png';
 
                     /* If the Enemy goes off screen in the left, we reset the position to start again */
                     if (this.x < -101) {
@@ -521,22 +521,22 @@ Enemy.prototype.update = function (dt) {
     }
 };
 
-/** 
+/**
  * @function Render enemy function
- * @description Draw the enemy on the screen, required method for game 
+ * @description Draw the enemy on the screen, required method for game
  */
 Enemy.prototype.render = function () {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-/** 
+/**
  * @function
- * @description Place all enemy objects in an array called allEnemies 
+ * @description Place all enemy objects in an array called allEnemies
  */
 var allEnemies = [];
 var enemyHeight = [146, 229, 312, 395, 478];  // only used in level 1
 
-/** 
+/**
  * @function Reset enemy function
  * @description Function to reset the enemies, that will be called when we change levels,
  where we draw the enemies of the next level on the canvas.
@@ -575,7 +575,7 @@ var enemyReset = function (level) {
             break;
 
         case 3:
-            allEnemies.push(new Enemy(101, -20, true, 101, 808));
+            allEnemies.push(new Enemy(0, -20, true, 0, 808));
             if (DIFFICULTY === 3) {
                 allEnemies.push(new Enemy(101, 63, true, 101, 606));
                 allEnemies.push(new Enemy(0, 146, true, 0, 606));
@@ -584,13 +584,13 @@ var enemyReset = function (level) {
                 allEnemies.push(new Enemy(303, 63, true, 303, 606));
                 allEnemies.push(new Enemy(303, 146, true, 303, 606));
             }
-            allEnemies.push(new Enemy(202, 312, true, 202, 808));
-            allEnemies.push(new Enemy(202, 395, true, 202, 808));
+            allEnemies.push(new Enemy(0, 312, true, 0, 808));
+            allEnemies.push(new Enemy(0, 395, true, 0, 808));
             allEnemies.push(new Enemy(202, 478, true, 202, 808));
             break;
 
         case 4:
-            /* Here we combine: in rows with obstacles for the bugs (the house and the stone path), 
+            /* Here we combine: in rows with obstacles for the bugs (the house and the stone path),
              * we create them as level 2, going back and forth.
              * In the other rows, we create as level 1, but with only 1 bug per row.
              * For nightmare difficulty, we put 2 bugs per row.
@@ -600,7 +600,7 @@ var enemyReset = function (level) {
             allEnemies.push(new Enemy(808, 63, false, 808, 0));     // right
             allEnemies.push(new Enemy(0, 146, true, 0, 808));       // left
             allEnemies.push(new Enemy(808, 229, false, 808, 0));    // right
-            allEnemies.push(new Enemy(0, 312, true, 0, 404));       // back and forth
+            allEnemies.push(new Enemy(110, 312, true, 110, 404));       // back and forth
             allEnemies.push(new Enemy(0, 395, true, 0, 404));       // back and forth
             allEnemies.push(new Enemy(0, 478, true, 0, 404));       // back and forth
             if (DIFFICULTY === 3) {
@@ -615,7 +615,7 @@ var enemyReset = function (level) {
 
 /* ------------------ PLAYER ------------------------- */
 
-/** 
+/**
  * @class Create the Player class
  * @description Implement the Player class
  * @param {number} x position of the player
@@ -627,7 +627,7 @@ var Player = function (x, y) {
     this.y = y;
 
     /* Loading the image by setting this.sprite */
-    this.sprite = 'img/' + HERO + '.png';
+    this.sprite = 'img/menu/artwork_Sparky.png';
 
     this.audio = {
         muted: false,
@@ -641,7 +641,7 @@ var Player = function (x, y) {
 
 /**
  * @function
- * @description Update the player's position and check for any collision 
+ * @description Update the player's position and check for any collision
  */
 Player.prototype.update = function () {
     this.x = this.x;
@@ -651,7 +651,7 @@ Player.prototype.update = function () {
 
 /**
  * @function Render player function
- * @description Draw the player on the screen 
+ * @description Draw the player on the screen
  */
 Player.prototype.render = function () {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
@@ -748,7 +748,7 @@ Player.prototype.handleInput = function (allowedKeys) {
 
 /**
  * @function Reset player function
- * @description Reset the player's position when it collides with a bug, and subtract a life 
+ * @description Reset the player's position when it collides with a bug, and subtract a life
  */
 Player.prototype.reset = function () {
     currentLifes = currentLifes - 1;
@@ -811,8 +811,8 @@ Player.prototype.changeLevel = function (level) {
 
 /**
  * @function
- * @description Stops de player when it tries to go over an obstacle (tree, rock, house, chest) 
- * @todo It doesn't stop properly, it is going one position back 
+ * @description Stops de player when it tries to go over an obstacle (tree, rock, house, chest)
+ * @todo It doesn't stop properly, it is going one position back
  */
 Player.prototype.stop = function () {
     this.x = previousX;
@@ -821,7 +821,7 @@ Player.prototype.stop = function () {
 
 /**
  * @function
- * @description When we have 0 lifes, it is game over 
+ * @description When we have 0 lifes, it is game over
  */
 Player.prototype.gameOver = function () {
     gameLost = true;
@@ -830,7 +830,7 @@ Player.prototype.gameOver = function () {
 
 /**
  * @function
- * @description When we open the door in level 4, it is the final state of the game 
+ * @description When we open the door in level 4, it is the final state of the game
  */
 Player.prototype.gameFinal = function () {
     gameWon = true;
@@ -839,7 +839,7 @@ Player.prototype.gameFinal = function () {
 
 /**
  * @function
- * @description Place the player object in a variable called player 
+ * @description Place the player object in a variable called player
  */
 var player = new Player(startX, startY);
 
@@ -1009,7 +1009,7 @@ var checkCollisions = function () {
                         if (currentLevel === 4) {
                             allObstacles[k].item = 'door-final';
                             allObstacles[k].sprite = 'img/door-tall-final.png';
-                            document.getElementById('dialog' + currentLevel).hidden = false;
+                            // document.getElementById('dialog' + currentLevel).hidden = false;
                             player.gameFinal();
 
                         } else {
@@ -1029,13 +1029,13 @@ var checkCollisions = function () {
                     /* When we open door of level, it shows the message and it puts nextLevel to true,
                      * this way it enables key 'enter' to be used to go to next level.
                      */
-                    player.sprite = 'img/' + HERO + '-sad.png';
-                    document.getElementById('dialog' + currentLevel).hidden = false;
+                    player.sprite = 'img/artwork_Sparky.png';
+                    // document.getElementById('dialog' + currentLevel).hidden = false;
                     nextLevel = true;
 
                     setTimeout(function () {
-                        player.sprite = 'img/' + HERO + '.png';
-                        document.getElementById('dialog' + currentLevel).hidden = true;
+                        player.sprite = 'img/artwork_Sparky.png';
+                        // document.getElementById('dialog' + currentLevel).hidden = true;
                         allEnemies = [];
                         allItems = [];
                         allObstacles = [];
@@ -1068,7 +1068,7 @@ var checkCollisions = function () {
  * Finally next_level goes to false, because we can't change level again if we don't play all the level.
  */
 var changeLevel = function (level) {
-    player.sprite = 'img/' + HERO + '.png';
+    player.sprite = 'img/artwork_Sparky.png';
     allEnemies = [];
     allItems = [];
     allObstacles = [];
@@ -1083,8 +1083,8 @@ var changeLevel = function (level) {
 
 /* ---------------------- KEYBOARD INPUT ---------------------------- */
 
-/** 
- * @description This listens for key presses and sends the keys to your Player.handleInput() method 
+/**
+ * @description This listens for key presses and sends the keys to your Player.handleInput() method
  */
 document.addEventListener('keyup', function (e) {
     var allowedKeys = {
